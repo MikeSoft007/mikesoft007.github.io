@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Ekpenyong O. — Microsoft 365 Technical Lead</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a24;
+    --border: #2a2a3a;
+    --accent: #c8a96e;
+    --accent2: #7eb8d4;
+    --text: #e8e6f0;
+    --muted: #8a88a0;
+    --dim: #555470;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    padding: 80px 60px 60px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a0f 0%, #12121e 50%, #0a0a0f 100%);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(200, 169, 110, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+  }
+
+  .name-block { animation: fadeUp 0.8s ease forwards; }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.1s ease forwards;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .tagline {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    max-width: 520px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.35s ease forwards;
+  }
+
+  .header-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s ease forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0f;
+    border: 1px solid var(--accent);
+  }
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(200,169,110,0.2);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    transform: translateY(-2px);
+  }
+
+  /* CONTACT STRIP */
+  .contact-strip {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 60px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s ease forwards;
+  }
+
+  .contact-strip-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-item:hover { color: var(--accent); }
+
+  .contact-item .icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5;
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 60px 80px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 60px;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 56px; }
+  section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ABOUT */
+  .about-text {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.8;
+    opacity: 0.85;
+  }
+
+  /* EXPERIENCE */
+  .job {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .job.visible { opacity: 1; transform: translateY(0); }
+  .job:first-of-type { padding-top: 0; }
+  .job:last-of-type { border-bottom: none; }
+
+  .job-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+    margin-bottom: 6px;
+  }
+
+  .job-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .job-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .job-company {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .job-bullets li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .job-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--dim);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  /* SIDEBAR */
+  .sidebar { }
+
+  /* SKILLS */
+  .skills-group { margin-bottom: 32px; }
+
+  .skills-group-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+    margin-bottom: 12px;
+  }
+
+  .skill-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-size: 12px;
+    color: var(--text);
+    margin: 0 4px 6px 0;
+    transition: all 0.2s;
+  }
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* EDUCATION */
+  .edu-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .edu-item:last-child { border-bottom: none; }
+
+  .edu-degree {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .edu-school {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+  }
+
+  /* CERTIFICATIONS */
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .cert-item:last-child { border-bottom: none; }
+  .cert-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* AWARDS */
+  .award-item {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .award-item:last-child { border-bottom: none; }
+
+  .award-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    padding-top: 2px;
+    flex-shrink: 0;
+    width: 36px;
+  }
+
+  .award-text {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 60px;
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 0.1em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    header, .contact-strip { padding: 48px 28px 40px; }
+    main { grid-template-columns: 1fr; padding: 40px 28px 60px; gap: 40px; }
+    .header-inner { grid-template-columns: 1fr; }
+    .header-cta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    footer { padding: 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="name-block">
+      <p class="eyebrow">Resume · Available for Opportunities</p>
+      <h1>Michael<br><span>Ekpenyong O.</span></h1>
+      <p class="tagline">Microsoft 365 Technical Lead &nbsp;·&nbsp; Exchange Online SME &nbsp;·&nbsp; Critical Incident & Customer Success Executive</p>
+    </div>
+    <div class="header-cta">
+      <a href="/mnt/user-data/uploads/Ekpenyong_Michael_Okoro.pdf" download="Michael_Ekpenyong_Resume.pdf" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </a>
+      <a href="https://www.linkedin.com/in/meokoro" target="_blank" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="contact-strip-inner">
+    <a href="tel:+250798689652" class="contact-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+      +250 798 689 652
+    </a>
+    <a href="mailto:mekpenyong2@gmail.com" class="contact-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      mekpenyong2@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/meokoro" target="_blank" class="contact-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      linkedin.com/in/meokoro
+    </a>
+    <span class="contact-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Gikondo, Kigali City, Rwanda
+    </span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+  <!-- LEFT: EXPERIENCE -->
+  <div>
+
+    <!-- ABOUT -->
+    <section>
+      <p class="section-label">About</p>
+      <p class="about-text">Experienced Microsoft 365 leader with a proven record of driving operational excellence, critical incident governance, and customer success at scale. Extensive experience leading 20+ member teams across Nigeria and Rwanda, delivering high-impact support across APAC, EMEA, and AMS time zones. Combines deep technical expertise in Exchange Online and Microsoft 365, strong people leadership, and executive-level incident management, with a solid foundation in backend software engineering.</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <p class="section-label">Work Experience</p>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Team Manager — Microsoft Critical Situation (CritSit/HICE)</div>
+          <div class="job-date">May 2025</div>
+        </div>
+        <div class="job-company">TekKnowledge</div>
+        <ul class="job-bullets">
+          <li>Oversaw a 20+ CMET Customer Service Manager team managing mission-critical Microsoft incidents.</li>
+          <li>Reduced customer escalations by 80% within 6 months through disciplined triage and escalation governance.</li>
+          <li>Enhanced client and executive engagement, improving customer confidence during high-severity incidents.</li>
+          <li>Led cross-functional coordination with Microsoft engineering, product, and leadership teams.</li>
+          <li>Instituted post-incident reviews and preventive action plans, strengthening long-term service stability.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Team Manager — Customer Success Account Management</div>
+          <div class="job-date">Mar 2024</div>
+        </div>
+        <div class="job-company">TekKnowledge</div>
+        <ul class="job-bullets">
+          <li>Led a 20+ agent Customer Success team supporting Microsoft CSAMs across enterprise accounts.</li>
+          <li>Improved customer engagement consistency through proactive case governance and communication.</li>
+          <li>Drove performance through coaching, KPI tracking, and structured quality reviews.</li>
+          <li>Strengthened collaboration with Microsoft stakeholders to align technical delivery with customer success objectives.</li>
+          <li>Improved operational efficiency by standardizing workflows and performance expectations.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Technical Lead II — Microsoft 365</div>
+          <div class="job-date">Sep 2022 – Mar 2024</div>
+        </div>
+        <div class="job-company">Teknowledge (formerly Tek-Experts)</div>
+        <ul class="job-bullets">
+          <li>Served as Exchange Online Technical Lead in Nigeria, providing escalation oversight for complex enterprise cases.</li>
+          <li>Selected to relocate to Rwanda to manage and stabilize the business in a broader operational scope.</li>
+          <li>Led Exchange Online support operations across APAC, EMEA, and AMS time zones.</li>
+          <li>Guided engineers on high-risk, high-complexity cases, improving resolution quality and reducing escalations.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Technical Support Engineer & Technical Trainer</div>
+          <div class="job-date">Sep 2020 – Sep 2022</div>
+        </div>
+        <div class="job-company">Teknowledge (formerly Tek-Experts)</div>
+        <ul class="job-bullets">
+          <li>Resolved complex Level 2 Exchange Online issues covering mail flow, hybrid, identity, and service reliability.</li>
+          <li>Partnered with Microsoft engineering teams for root cause analysis and permanent remediation.</li>
+          <li>Maintained strong SLA adherence while managing multiple concurrent enterprise cases.</li>
+          <li>Trained and mentored new engineers, accelerating time-to-productivity and improving case quality.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Python Backend Engineer</div>
+          <div class="job-date">Feb 2020</div>
+        </div>
+        <div class="job-company">Instant Deposit Limited | Genesis Tech Hub, Enugu, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Designed and developed backend services using Python (Flask, FastAPI) for scalable platforms.</li>
+          <li>Built APIs supporting e-payment processing, transaction systems, and automated robocall solutions.</li>
+          <li>Integrated USSD platforms using Africa's Talking Gateway and Twilio.</li>
+          <li>Contributed to COVID-19 testing and recommendation systems during the 2020 response period.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Python Backend Engineer Intern</div>
+          <div class="job-date">Sep 2019</div>
+        </div>
+        <div class="job-company">NHub Nigeria | Anglo Jos, Plateau State, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Expert in navigating Linux (Ubuntu) for coding journeys.</li>
+          <li>Proficient in terminal commands and the Flask framework using Python.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">System Support / Computer Instructor</div>
+          <div class="job-date">Jan 2016</div>
+        </div>
+        <div class="job-company">Data Tech West Africa Ltd, Owerri, Imo State, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Delivered training on MS Access, Excel, Graphics, and presentations for children and adults.</li>
+          <li>Supported Imo State civil servants in using computers for employee management and record keeping.</li>
+          <li>Organized CBT classes to equip JAMB candidates with essential computer skills.</li>
+          <li>Aided in the establishment of a CBT center for online classes and examinations.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- AWARDS -->
+    <section>
+      <p class="section-label">Awards</p>
+      <div class="award-item">
+        <div class="award-year">2021</div>
+        <div class="award-text">Best Engineer M365 | Exchange Online — Tek-Experts Nigeria</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2024</div>
+        <div class="award-text">Best Performing Technical Lead | M365 — Tek-Experts Rwanda</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2025</div>
+        <div class="award-text">Outstanding Manager | CSAM — Tekknowledge Rwanda</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">2026</div>
+        <div class="award-text">Best Performing Team Manager | CritSit — Teknowledge Rwanda</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RIGHT: SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- SKILLS -->
+    <section>
+      <p class="section-label">Expertise</p>
+      <div class="skills-group">
+        <div class="skills-group-label">Hard Skills</div>
+        <span class="skill-tag">Microsoft 365</span>
+        <span class="skill-tag">Exchange Online</span>
+        <span class="skill-tag">Python (Flask, FastAPI)</span>
+        <span class="skill-tag">Linux / CLI</span>
+        <span class="skill-tag">API Development</span>
+        <span class="skill-tag">Twilio</span>
+        <span class="skill-tag">Africa's Talking</span>
+        <span class="skill-tag">USSD Integration</span>
+        <span class="skill-tag">AWS Cloud</span>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Soft Skills</div>
+        <span class="skill-tag">Leadership</span>
+        <span class="skill-tag">Stakeholder Communication</span>
+        <span class="skill-tag">Incident Management</span>
+        <span class="skill-tag">Cross-functional Collaboration</span>
+        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Coaching & Mentoring</span>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+      <p class="section-label">Education</p>
+      <div class="edu-item">
+        <div class="edu-degree">MIT / Information Technology</div>
+        <div class="edu-school">Miva Open University, Abuja</div>
+        <div class="edu-year">2026 — In View</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">BSc. / Computer Science</div>
+        <div class="edu-school">Nexus Int. University, Uganda</div>
+        <div class="edu-year">2025</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">HND / Computer Science</div>
+        <div class="edu-school">Federal Polytechnic, Nekede Owerri</div>
+        <div class="edu-year">2028</div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section>
+      <p class="section-label">Certifications</p>
+      <div class="cert-item"><div class="cert-dot"></div>Graduate Member, Computer Professionals of Nigeria (2018)</div>
+      <div class="cert-item"><div class="cert-dot"></div>Python Programming by Meta | Coursera (2022)</div>
+      <div class="cert-item"><div class="cert-dot"></div>Version Control by Meta | Coursera (2022)</div>
+      <div class="cert-item"><div class="cert-dot"></div>Database Management by Meta | Coursera (2022)</div>
+      <div class="cert-item"><div class="cert-dot"></div>Intro to Back-End Development by Meta | Coursera (2022)</div>
+      <div class="cert-item"><div class="cert-dot"></div>Microsoft 365 Outlook Specialist | Microsoft (2022)</div>
+      <div class="cert-item"><div class="cert-dot"></div>AI Career Essentials | ALX (2024)</div>
+      <div class="cert-item"><div class="cert-dot"></div>HNG Finalist | HNG Internship (2024)</div>
+      <div class="cert-item"><div class="cert-dot"></div>AWS Cloud Practitioner | AWS (2025)</div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">© 2026 Michael Ekpenyong O. — Kigali, Rwanda</span>
+    <a href="/mnt/user-data/uploads/Ekpenyong_Michael_Okoro.pdf" download="Michael_Ekpenyong_Resume.pdf" class="btn btn-primary" style="font-size:12px; padding: 10px 20px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download CV
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal for job items
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.job').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
