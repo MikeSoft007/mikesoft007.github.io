@@ -17,11 +17,11 @@
     --muted: #8a88a0;
     --dim: #555470;
   }
- 
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
   html { scroll-behavior: smooth; }
- 
+
   body {
     background: var(--bg);
     color: var(--text);
@@ -30,7 +30,7 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
- 
+
   /* NOISE TEXTURE */
   body::before {
     content: '';
@@ -41,7 +41,7 @@
     z-index: 1000;
     opacity: 0.4;
   }
- 
+
   /* HEADER */
   header {
     position: relative;
@@ -50,7 +50,7 @@
     overflow: hidden;
     background: linear-gradient(135deg, #0a0a0f 0%, #12121e 50%, #0a0a0f 100%);
   }
- 
+
   header::after {
     content: '';
     position: absolute;
@@ -61,7 +61,7 @@
     background: radial-gradient(circle, rgba(200, 169, 110, 0.06) 0%, transparent 70%);
     pointer-events: none;
   }
- 
+
   .header-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -70,7 +70,7 @@
     gap: 40px;
     align-items: center;
   }
- 
+
   .header-photo {
     width: 110px;
     height: 110px;
@@ -83,9 +83,9 @@
     opacity: 0;
     animation: fadeUp 0.8s 0.15s ease forwards;
   }
- 
+
   .name-block { animation: fadeUp 0.8s ease forwards; }
- 
+
   .eyebrow {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
@@ -96,7 +96,7 @@
     opacity: 0;
     animation: fadeUp 0.8s 0.1s ease forwards;
   }
- 
+
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(42px, 6vw, 80px);
@@ -107,9 +107,9 @@
     opacity: 0;
     animation: fadeUp 0.8s 0.2s ease forwards;
   }
- 
+
   h1 span { color: var(--accent); }
- 
+
   .tagline {
     margin-top: 20px;
     font-size: 14px;
@@ -119,7 +119,7 @@
     opacity: 0;
     animation: fadeUp 0.8s 0.35s ease forwards;
   }
- 
+
   .header-cta {
     display: flex;
     flex-direction: column;
@@ -128,7 +128,7 @@
     opacity: 0;
     animation: fadeUp 0.8s 0.4s ease forwards;
   }
- 
+
   .btn {
     display: inline-flex;
     align-items: center;
@@ -143,7 +143,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
   }
- 
+
   .btn-primary {
     background: var(--accent);
     color: #0a0a0f;
@@ -155,7 +155,7 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(200,169,110,0.2);
   }
- 
+
   .btn-secondary {
     background: transparent;
     color: var(--text);
@@ -166,7 +166,7 @@
     color: var(--accent2);
     transform: translateY(-2px);
   }
- 
+
   /* CONTACT STRIP */
   .contact-strip {
     background: var(--surface);
@@ -175,7 +175,7 @@
     opacity: 0;
     animation: fadeUp 0.8s 0.5s ease forwards;
   }
- 
+
   .contact-strip-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -184,7 +184,7 @@
     gap: 32px;
     align-items: center;
   }
- 
+
   .contact-item {
     display: flex;
     align-items: center;
@@ -195,13 +195,13 @@
     transition: color 0.2s;
   }
   .contact-item:hover { color: var(--accent); }
- 
+
   .contact-item .icon {
     width: 16px;
     height: 16px;
     opacity: 0.5;
   }
- 
+
   /* MAIN LAYOUT */
   main {
     max-width: 1100px;
@@ -211,11 +211,11 @@
     grid-template-columns: 1fr 340px;
     gap: 60px;
   }
- 
+
   /* SECTIONS */
   section { margin-bottom: 56px; }
   section:last-child { margin-bottom: 0; }
- 
+
   .section-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
@@ -233,7 +233,7 @@
     height: 1px;
     background: var(--border);
   }
- 
+
   /* ABOUT */
   .about-text {
     font-size: 15px;
@@ -241,7 +241,7 @@
     line-height: 1.8;
     opacity: 0.85;
   }
- 
+
   /* EXPERIENCE */
   .job {
     padding: 28px 0;
@@ -253,7 +253,7 @@
   .job.visible { opacity: 1; transform: translateY(0); }
   .job:first-of-type { padding-top: 0; }
   .job:last-of-type { border-bottom: none; }
- 
+
   .job-header {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -261,7 +261,7 @@
     align-items: start;
     margin-bottom: 6px;
   }
- 
+
   .job-title {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
@@ -269,7 +269,7 @@
     color: var(--text);
     line-height: 1.3;
   }
- 
+
   .job-date {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
@@ -278,7 +278,7 @@
     padding-top: 4px;
     letter-spacing: 0.05em;
   }
- 
+
   .job-company {
     font-size: 12px;
     color: var(--muted);
@@ -286,14 +286,14 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
- 
+
   .job-bullets {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
- 
+
   .job-bullets li {
     font-size: 14px;
     color: var(--muted);
@@ -301,7 +301,7 @@
     position: relative;
     line-height: 1.6;
   }
- 
+
   .job-bullets li::before {
     content: '—';
     position: absolute;
@@ -310,13 +310,13 @@
     font-size: 11px;
     top: 2px;
   }
- 
+
   /* SIDEBAR */
   .sidebar { }
- 
+
   /* SKILLS */
   .skills-group { margin-bottom: 32px; }
- 
+
   .skills-group-label {
     font-size: 11px;
     font-weight: 600;
@@ -325,7 +325,7 @@
     color: var(--dim);
     margin-bottom: 12px;
   }
- 
+
   .skill-tag {
     display: inline-block;
     padding: 5px 12px;
@@ -341,33 +341,33 @@
     border-color: var(--accent);
     color: var(--accent);
   }
- 
+
   /* EDUCATION */
   .edu-item {
     padding: 16px 0;
     border-bottom: 1px solid var(--border);
   }
   .edu-item:last-child { border-bottom: none; }
- 
+
   .edu-degree {
     font-size: 14px;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 2px;
   }
- 
+
   .edu-school {
     font-size: 12px;
     color: var(--muted);
     margin-bottom: 2px;
   }
- 
+
   .edu-year {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
     color: var(--accent);
   }
- 
+
   /* CERTIFICATIONS */
   .cert-item {
     display: flex;
@@ -387,7 +387,7 @@
     flex-shrink: 0;
     margin-top: 6px;
   }
- 
+
   /* AWARDS */
   .award-item {
     display: flex;
@@ -396,7 +396,7 @@
     border-bottom: 1px solid var(--border);
   }
   .award-item:last-child { border-bottom: none; }
- 
+
   .award-year {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
@@ -405,20 +405,20 @@
     flex-shrink: 0;
     width: 36px;
   }
- 
+
   .award-text {
     font-size: 13px;
     color: var(--muted);
     line-height: 1.5;
   }
- 
+
   /* FOOTER */
   footer {
     border-top: 1px solid var(--border);
     padding: 28px 60px;
     text-align: center;
   }
- 
+
   .footer-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -428,25 +428,25 @@
     flex-wrap: wrap;
     gap: 16px;
   }
- 
+
   .footer-text {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
     color: var(--dim);
     letter-spacing: 0.1em;
   }
- 
+
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
- 
+
   /* SCROLLBAR */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); }
- 
+
   /* STICKY NAV */
   .sticky-nav {
     position: sticky;
@@ -458,7 +458,7 @@
     border-bottom: 1px solid var(--border);
     padding: 0 60px;
   }
- 
+
   .sticky-nav-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -469,7 +469,7 @@
     scrollbar-width: none;
   }
   .sticky-nav-inner::-webkit-scrollbar { display: none; }
- 
+
   .nav-link {
     display: inline-flex;
     align-items: center;
@@ -491,17 +491,17 @@
     color: var(--accent);
     border-bottom-color: var(--accent);
   }
- 
+
   .nav-link svg { opacity: 0.6; flex-shrink: 0; }
   .nav-link.active svg { opacity: 1; }
- 
+
   .nav-divider {
     width: 1px;
     height: 16px;
     background: var(--border);
     flex-shrink: 0;
   }
- 
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     header, .contact-strip { padding: 48px 28px 40px; }
@@ -512,10 +512,143 @@
     .sticky-nav { padding: 0 16px; }
     .nav-link { padding: 12px 12px; font-size: 10px; }
   }
+
+  /* CONTACT FORM SECTION */
+  .contact-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 60px;
+  }
+
+  .contact-section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 0; }
+
+  .contact-info-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .contact-info-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-detail:last-child { border-bottom: none; }
+  .contact-detail:hover { color: var(--accent); }
+
+  .contact-detail-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .contact-detail-text { display: flex; flex-direction: column; gap: 1px; }
+  .contact-detail-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); font-family: 'DM Mono', monospace; }
+  .contact-detail-value { font-size: 13px; color: var(--text); }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 14px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .form-input, .form-textarea {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 10px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--dim); }
+
+  .form-textarea { resize: vertical; min-height: 110px; font-family: 'DM Sans', sans-serif; }
+
+  .form-submit {
+    align-self: flex-start;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #0a0a0f;
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-submit:hover { background: transparent; color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,0.2); }
+
+  .form-success {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: rgba(126,184,212,0.08);
+    border: 1px solid rgba(126,184,212,0.3);
+    border-radius: 2px;
+    font-size: 13px;
+    color: var(--accent2);
+  }
+
+  @media (max-width: 900px) {
+    .contact-section { padding: 40px 28px; }
+    .contact-section-inner { grid-template-columns: 1fr; gap: 36px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
- 
+
 <!-- HEADER -->
 <header>
   <div class="header-inner">
@@ -535,38 +668,10 @@
         LinkedIn
       </a>
     </div>
-    <!-- Added image (line ~522) -->
-    <!-- <div class="header-image-download" style="margin-top:16px; display:flex; align-items:center; gap:12px;">
-      <img src="static/img/mike.jpeg" alt="Profile image" style="height:120px; max-width:120px; object-fit:cover; border-radius:8px; border:1px solid var(--border);" />
-      <a href="static/files/Ekpenyong Michael Okoro.pdf" download="Michael_Ekpenyong_Okoro_CV.pdf" class="btn btn-primary" style="white-space:nowrap;">
-        Download CV File
-      </a>
-    </div> -->
   </div>
 </header>
- 
+
 <!-- CONTACT STRIP -->
-<div class="contact-strip" id="contact">
-  <div class="contact-strip-inner">
-    <a href="tel:+250798689652" class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
-      +250 798 689 652
-    </a>
-    <a href="/cdn-cgi/l/email-protection#711c141a01141f081e1f164331161c10181d5f121e1c" class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      <span class="__cf_email__" data-cfemail="e78a828c9782899e888980d5a7808a868e8bc984888a">[email&#160;protected]</span>
-    </a>
-    <a href="https://www.linkedin.com/in/meokoro" target="_blank" class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      linkedin.com/in/meokoro
-    </a>
-    <span class="contact-item">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Gikondo, Kigali City, Rwanda
-    </span>
-  </div>
-</div>
- 
 <!-- STICKY NAV -->
 <nav class="sticky-nav" id="sticky-nav">
   <div class="sticky-nav-inner">
@@ -606,22 +711,22 @@
     </a>
   </div>
 </nav>
- 
+
 <!-- MAIN -->
 <main>
   <!-- LEFT: EXPERIENCE -->
   <div>
- 
+
     <!-- ABOUT -->
     <section id="about">
       <p class="section-label">About</p>
       <p class="about-text">Experienced Microsoft 365 leader with a proven record of driving operational excellence, critical incident governance, and customer success at scale. Extensive experience leading 20+ member teams across Nigeria and Rwanda, delivering high-impact support across APAC, EMEA, and AMS time zones. Combines deep technical expertise in Exchange Online and Microsoft 365, strong people leadership, and executive-level incident management, with a solid foundation in backend software engineering.</p>
     </section>
- 
+
     <!-- EXPERIENCE -->
     <section id="experience">
       <p class="section-label">Work Experience</p>
- 
+
       <div class="job">
         <div class="job-header">
           <div class="job-title">Team Manager — Microsoft Critical Situation (CritSit/HICE)</div>
@@ -636,7 +741,7 @@
           <li>Instituted post-incident reviews and preventive action plans, strengthening long-term service stability.</li>
         </ul>
       </div>
- 
+
       <div class="job">
         <div class="job-header">
           <div class="job-title">Team Manager — Customer Success Account Management</div>
@@ -651,7 +756,7 @@
           <li>Improved operational efficiency by standardizing workflows and performance expectations.</li>
         </ul>
       </div>
- 
+
       <div class="job">
         <div class="job-header">
           <div class="job-title">Technical Lead II — Microsoft 365</div>
@@ -665,7 +770,7 @@
           <li>Guided engineers on high-risk, high-complexity cases, improving resolution quality and reducing escalations.</li>
         </ul>
       </div>
- 
+
       <div class="job">
         <div class="job-header">
           <div class="job-title">Technical Support Engineer & Technical Trainer</div>
@@ -679,7 +784,7 @@
           <li>Trained and mentored new engineers, accelerating time-to-productivity and improving case quality.</li>
         </ul>
       </div>
- 
+
       <div class="job">
         <div class="job-header">
           <div class="job-title">Python Backend Engineer</div>
@@ -693,7 +798,7 @@
           <li>Contributed to COVID-19 testing and recommendation systems during the 2020 response period.</li>
         </ul>
       </div>
- 
+
       <div class="job">
         <div class="job-header">
           <div class="job-title">Python Backend Engineer Intern</div>
@@ -705,7 +810,7 @@
           <li>Proficient in terminal commands and the Flask framework using Python.</li>
         </ul>
       </div>
- 
+
       <div class="job">
         <div class="job-header">
           <div class="job-title">System Support / Computer Instructor</div>
@@ -719,9 +824,9 @@
           <li>Aided in the establishment of a CBT center for online classes and examinations.</li>
         </ul>
       </div>
- 
+
     </section>
- 
+
     <!-- AWARDS -->
     <section id="awards">
       <p class="section-label">Awards</p>
@@ -742,12 +847,12 @@
         <div class="award-text">Best Performing Team Manager | CritSit — Teknowledge Rwanda</div>
       </div>
     </section>
- 
+
   </div>
- 
+
   <!-- RIGHT: SIDEBAR -->
   <div class="sidebar">
- 
+
     <!-- SKILLS -->
     <section id="skills">
       <p class="section-label">Expertise</p>
@@ -773,7 +878,7 @@
         <span class="skill-tag">Coaching & Mentoring</span>
       </div>
     </section>
- 
+
     <!-- EDUCATION -->
     <section id="education">
       <p class="section-label">Education</p>
@@ -790,10 +895,10 @@
       <div class="edu-item">
         <div class="edu-degree">HND / Computer Science</div>
         <div class="edu-school">Federal Polytechnic, Nekede Owerri</div>
-        <div class="edu-year">2018</div>
+        <div class="edu-year">2028</div>
       </div>
     </section>
- 
+
     <!-- CERTIFICATIONS -->
     <section id="certifications">
       <p class="section-label">Certifications</p>
@@ -807,10 +912,96 @@
       <div class="cert-item"><div class="cert-dot"></div>HNG Finalist | HNG Internship (2024)</div>
       <div class="cert-item"><div class="cert-dot"></div>AWS Cloud Practitioner | AWS (2025)</div>
     </section>
- 
+
   </div>
 </main>
- 
+
+<div class="contact-section" id="contact">
+  <div class="contact-section-inner">
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <div class="contact-info-title">Get in Touch</div>
+      <p class="contact-info-sub">Open to new opportunities, collaborations, and conversations. Reach out directly or send a message.</p>
+
+      <a href="tel:+250798689652" class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">Phone</span>
+          <span class="contact-detail-value">+250 798 689 652</span>
+        </div>
+      </a>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-value" id="email-display">mekpenyong2 [at] gmail.com</span>
+        </div>
+      </div>
+
+      <a href="https://www.linkedin.com/in/meokoro" target="_blank" class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">LinkedIn</span>
+          <span class="contact-detail-value">linkedin.com/in/meokoro</span>
+        </div>
+      </a>
+
+      <span class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <span class="contact-detail-label">Location</span>
+          <span class="contact-detail-value">Gikondo, Kigali City, Rwanda</span>
+        </div>
+      </span>
+    </div>
+
+    <!-- Contact Form -->
+    <div>
+      <div class="contact-form" id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="cf-name">Your Name</label>
+            <input class="form-input" id="cf-name" type="text" placeholder="Jane Smith" autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-email">Your Email</label>
+            <input class="form-input" id="cf-email" type="email" placeholder="jane@company.com" autocomplete="off" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-subject">Subject</label>
+          <input class="form-input" id="cf-subject" type="text" placeholder="Opportunity / Collaboration / Hello" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cf-message">Message</label>
+          <textarea class="form-textarea" id="cf-message" placeholder="Tell me what you have in mind..."></textarea>
+        </div>
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+          <button class="form-submit" onclick="handleFormSubmit()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+          <div class="form-success" id="form-success">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Message sent! Michael will be in touch soon.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -821,9 +1012,44 @@
     </a>
   </div>
 </footer>
- 
+
 <script>
-  // Scroll reveal for job items
+  // Reveal email safely (bypasses Cloudflare obfuscation)
+  (function() {
+    const u = 'mekpenyong2', d = 'gmail.com';
+    const el = document.getElementById('email-display');
+    if (el) el.textContent = u + '@' + d;
+  })();
+
+  // Contact form handler — opens mailto with prefilled content
+  function handleFormSubmit() {
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    const u = 'mekpenyong2', d = 'gmail.com';
+    const body = encodeURIComponent(
+      'From: ' + name + ' <' + email + '>\n\n' + message
+    );
+    const sub = encodeURIComponent(subject || 'Message from ' + name);
+
+    window.location.href = 'mailto:' + u + '@' + d + '?subject=' + sub + '&body=' + body;
+
+    // Show success state
+    document.getElementById('form-success').style.display = 'flex';
+    setTimeout(() => {
+      document.getElementById('cf-name').value = '';
+      document.getElementById('cf-email').value = '';
+      document.getElementById('cf-subject').value = '';
+      document.getElementById('cf-message').value = '';
+    }, 1500);
+  }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -831,13 +1057,13 @@
       }
     });
   }, { threshold: 0.1 });
- 
+
   document.querySelectorAll('.job').forEach(el => observer.observe(el));
- 
+
   // Nav active state on scroll
   const sections = ['about','experience','awards','skills','education','certifications','contact'];
   const navLinks = document.querySelectorAll('.nav-link');
- 
+
   function setActive(id) {
     navLinks.forEach(link => {
       link.classList.toggle('active', link.getAttribute('href') === '#' + id);
@@ -845,18 +1071,18 @@
     const active = document.querySelector(`.nav-link[href="#${id}"]`);
     if (active) active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
- 
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) setActive(entry.target.id);
     });
   }, { threshold: 0.25, rootMargin: '-60px 0px -40% 0px' });
- 
+
   sections.forEach(id => {
     const el = document.getElementById(id);
     if (el) sectionObserver.observe(el);
   });
- 
+
   // Smooth scroll with sticky nav offset
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', e => {
